@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人主页 - AI助手</title>
+    <title>个人主页</title>
     
     <!-- 引入字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     
     <!-- 引入图标库 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
-    
-    <!-- 引入动画库 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     
     <!-- 引入自定义样式 -->
     <link rel="stylesheet" href="styles.css">
@@ -25,27 +22,27 @@
             <a href="#home" class="active">首页</a>
             <a href="#about">关于</a>
             <a href="#portfolio">作品集</a>
-            <a href="#ai-assistant" class="ai-btn">AI助手</a>
             <a href="#contact">联系</a>
-        </div>
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
         </div>
     </nav>
 
     <!-- 英雄区域 -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 data-aos="fade-up">你好，我是 <span class="highlight">围围</span></h1>
-            <p data-aos="fade-up" data-aos-delay="200">前端开发者 / AI爱好者 / 创意工作者</p>
+            <h1>你好，我是 <span class="highlight">围围</span></h1>
+            <p>前端开发者 / AI爱好者 / 创意工作者</p>
         </div>
     </section>
 
     <!-- 将AI对话模态框改为侧边栏 -->
     <div class="ai-sidebar" id="aiSidebar">
         <div class="sidebar-content">
-            <div class="sidebar-header" id="sidebarHeader">
+            <div class="sidebar-header">
                 <h3>AI助手对话</h3>
+                <select class="model-select">
+                    <option value="Qwen/Qwen2.5-7B-Instruct">Qwen2.5-7B</option>
+                    <option value="deepseek-ai/DeepSeek-R1-Distill-Qwen-7B">DeepSeek-R1</option>
+                </select>
                 <i class="fas fa-chevron-right"></i>
             </div>
             <div class="chat-container">
@@ -60,8 +57,8 @@
         </div>
     </div>
 
-    <!-- 修改浮动按钮的HTML结构 -->
-    <button class="ai-float-button" id="aiFloatButton">
+    <!-- AI助手按钮 -->
+    <button class="ai-float-button">
         <div class="button-content">
             <i class="fas fa-robot"></i>
             <span class="button-text">AI助手</span>
@@ -69,13 +66,7 @@
         </div>
     </button>
 
-    <!-- 返回顶部按钮 -->
-    <button id="backToTop" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- 引入JS库 -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- 引入JavaScript -->
     <script src="script.js"></script>
 </body>
 </html> 
