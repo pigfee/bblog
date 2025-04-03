@@ -3,202 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>吴振围的个人技术博客</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 2rem;
-            background-color: #333;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            color: #fff;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .post-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInIn 2s infinite alternate;
-        }
-
-        . animated-box {
-            animation: slideUp 1s ease;
-        }
-
-        @keyframes fadeInIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .content-section {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-
-        h2 {
-            color: #333;
-            margin-bottom: 1rem;
-        }
-
-        .services-list {
-            list-style: none;
-        }
-
-        .service-item {
-            display: flex;
-            align-items: center;
-            padding: 0.5rem 1rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        @media (max-width: 768px) {
-            .content-section {
-                padding: 1rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 2rem;
-            background-color: #333;
-            color: white;
-            padding: 1rem;
-        }
-
-        .privacy-policy {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            background-color: white;
-            pading: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-    </style>
+    <title>个人主页 - AI助手</title>
+    
+    <!-- 引入字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 引入图标库 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    
+    <!-- 引入动画库 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="container">
-        <div class="logo">吴振围</div>
-        <main class="main-content">
-            <h1 class="post-title" animated-by="animated-box">前端开发 & 技术分享</h1>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-brand">围围</div>
+        <div class="nav-links">
+            <a href="#home" class="active">首页</a>
+            <a href="#about">关于</a>
+            <a href="#portfolio">作品集</a>
+            <a href="#ai-assistant" class="ai-btn">AI助手</a>
+            <a href="#contact">联系</a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
 
-            <div class="content-section">
-                <p>我是一位热爱前端开发和技术写作的开发者，专注于分享React、Vue和JavaScript相关知识。</p>
+    <!-- 英雄区域 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-aos="fade-up">你好，我是 <span class="highlight">围围</span></h1>
+            <p data-aos="fade-up" data-aos-delay="200">前端开发者 / AI爱好者 / 创意工作者</p>
+        </div>
+    </section>
 
-                <div class="services-list">
-                    <button onclick="showPrivacyPolicy()">隐私政策</button>
-                    <br>
-                    <button onclick="showTermsOfService()">terms of service</button>
+    <!-- 将AI对话模态框改为侧边栏 -->
+    <div class="ai-sidebar" id="aiSidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-header" id="sidebarHeader">
+                <h3>AI助手对话</h3>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="chat-container">
+                <div class="messages"></div>
+                <div class="input-area">
+                    <textarea placeholder="输入您的问题..."></textarea>
+                    <button class="send-message">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
                 </div>
             </div>
-
-            <section class="content-section">
-                <h2>热门文章</h2>
-                <ul class="services-list">
-                    <li><a href="#" class="service-item">如何快速搭建个人博客</a></li>
-                    <li><a href="#" class="service-item">React组件开发技巧</a></li>
-                    <li><a href="#" class="service-item">Vue框架实战指南</a></li>
-                </ul>
-            </section>
-
-            <!-- 加载状态 -->
-            <div id="loading" class="animated-box">初始化中...</div>
-
-            <!-- 动态响应 -->
-            <button onclick="showAnimation()">显示动画效果</button>
-        </main>
-    </header>
-
-    <footer class="container">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <p>© 2023 吴振围个人博客. 版权所有.</p>
-            <a href="#" class="privacy-policy">隐私政策</a>
         </div>
-    </footer>
+    </div>
 
-    <script>
-        // 显示隐私政策
-        function showPrivacyPolicy() {
-            const privacyDoc = document.querySelector('.privacy-policy');
-            privacyDoc.style.display = 'block';
-        }
+    <!-- 修改浮动按钮的HTML结构 -->
+    <button class="ai-float-button" id="aiFloatButton">
+        <div class="button-content">
+            <i class="fas fa-robot"></i>
+            <span class="button-text">AI助手</span>
+            <i class="fas fa-chevron-right arrow-icon"></i>
+        </div>
+    </button>
 
-        // 显示动画效果
-        function showAnimation() {
-            const loadingElement = document.getElementById('loading');
-            if (!loadingElement.classList.contains('animated-box')) {
-                loadingElement.classList.add('animated-box');
-            }
-        }
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-        // 滚动加载
-        window.addEventListener('scroll', () => {
-            const container = document.querySelector('.container');
-            if (container) {
-                const maxBottom = container.scrollHeight - 50;
-                if (window.scrollY > maxBottom) {
-                    container.scrollTop = 'auto';
-                }
-            }
-        });
-    </script>
+    <!-- 引入JS库 -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
-</html>
+</html> 
